@@ -37,7 +37,7 @@ if (frame != null) {
   }
   
   fireballSprite = loadImage("sprite.png");
-  ps = new ParticleSystem(5000);
+  ps = new ParticleSystem(4000);
   
   // Writing to the depth buffer is disabled to avoid rendering
   // artifacts due to the fact that the particles are semi-transparent
@@ -51,7 +51,7 @@ if (frame != null) {
   
   // start the image out moving
   // so mouse press will drop it
-  imageMoving = true;
+//  imageMoving = true;
   
   background(0);
 }
@@ -85,15 +85,15 @@ void draw() {
 float interpolatedX = lerp(lastX, closestX, 0.2);
 float interpolatedY = lerp(lastY, closestY, 0.2);
 
-if(imageMoving){
-  image1X = interpolatedX;
-  image1Y = interpolatedY;
-}
+image1X = interpolatedX;
+image1Y = interpolatedY;
 
-  // draw irImageMap
+
+
+// draw irImageMap
 //  image(kinect.rgbImage(), 0, 0, 1200, 960);
   image(kinect.rgbImage(), 0, 0);
-  println("w:" + displayWidth + ", h:" + displayHeight);
+//  println("w:" + displayWidth + ", h:" + displayHeight);
   ps.update();
   ps.display();
   ps.setEmitter(image1X, image1Y);
